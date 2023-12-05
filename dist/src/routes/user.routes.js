@@ -14,6 +14,6 @@ const userController = new UserController_1.default();
 const userAvatarController = new UserAvatarController_1.default();
 const upload = (0, multer_1.default)(upload_1.uploadConfig.MULTER);
 userRoutes.post('/', userController.create);
-userRoutes.put('/:user_id', ensureAuthenticated_1.default, userController.update);
-userRoutes.patch('/avatar/:user_id', ensureAuthenticated_1.default, upload.single("avatar"), userAvatarController.update);
+userRoutes.put('/', ensureAuthenticated_1.default, userController.update);
+userRoutes.patch('/avatar', ensureAuthenticated_1.default, upload.single("avatar"), userAvatarController.update);
 exports.default = userRoutes;
